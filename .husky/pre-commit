@@ -1,0 +1,2 @@
+echo "========== Husky =========="
+yarn check:all
