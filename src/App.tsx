@@ -1,7 +1,10 @@
+import { useTranslation } from 'react-i18next'
+
 function App() {
+  const { t } = useTranslation()
   return (
     <>
-      <p className="text-3xl font-bold underline">Click on the Vite and React logos to learn more</p>
+      <p className="text-3xl font-bold underline">{t('Hello World')}</p>
     </>
   )
 }
