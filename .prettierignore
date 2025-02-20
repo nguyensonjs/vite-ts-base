@@ -5,4 +5,4 @@ build/
 *.app.json
 *.node.json
 tsconfig.json
-locales/*.json
+src/locales/*.json
