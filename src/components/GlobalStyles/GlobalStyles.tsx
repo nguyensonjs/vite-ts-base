@@ -5,8 +5,6 @@ interface GlobalStylesProps {
   children: ReactNode
 }
 
-const GlobalStyles = ({ children }: GlobalStylesProps) => {
+export const GlobalStyles = ({ children }: GlobalStylesProps) => {
   return children
 }
-
-export default GlobalStyles
