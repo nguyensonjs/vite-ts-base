@@ -6,5 +6,8 @@
   "useTabs": false,
   "singleQuote": true,
   "printWidth": 120,
-  "jsxSingleQoute": true
+  "jsxSingleQoute": true,
+  "plugins": [
+    "prettier-plugin-tailwindcss"
+  ]
 }
