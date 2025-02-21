@@ -1,10 +1,30 @@
-import { useTranslation } from 'react-i18next'
+import { ProtectedRoute } from 'components/ProtectedRoute'
+import { Route, Routes } from 'react-router-dom'
+import { privateRoutes, publicRoutes } from 'routes'
 
 function App() {
-  const { t } = useTranslation()
+  const isAuthenticated = false
   return (
     <>
-      <p className="text-3xl font-bold underline">{t('Hello World')}</p>
+      <div className="App">
+        <Routes>
+          {publicRoutes.map((route, index) => {
+            const Page = route.component
+            return <Route key={index} path={route.path} element={<Page />} />
+          })}
+
+          {privateRoutes.map((route, index) => {
+            const Page = route.component
+            return (
+              <Route
+                key={index}
+                path={route.path}
+                element={<ProtectedRoute element={Page} isAuthenticated={isAuthenticated} />}
+              />
+            )
+          })}
+        </Routes>
+      </div>
     </>
   )
 }
