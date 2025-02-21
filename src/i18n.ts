@@ -5,11 +5,11 @@ import vn from './locales/vn.json'
 
 const resources = {
   en: {
-    translation: en,
+    translation: en
   },
   vn: {
-    translation: vn,
-  },
+    translation: vn
+  }
 }
 
 i18next.use(initReactI18next).init({
@@ -17,8 +17,8 @@ i18next.use(initReactI18next).init({
   lng: 'en',
 
   interpolation: {
-    escapeValue: false,
-  },
+    escapeValue: false
+  }
 })
 
 export default i18next
