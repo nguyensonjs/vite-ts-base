@@ -1,5 +1,5 @@
 # Sử dụng node làm base image
-FROM node:18-alpine AS builder
+FROM node:20-alpine AS builder
 
 # Thiết lập thư mục làm việc trong container
 WORKDIR /app
