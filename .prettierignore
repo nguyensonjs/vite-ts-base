@@ -6,3 +6,4 @@ build/
 *.node.json
 tsconfig.json
 src/locales/*.json
+*.md
