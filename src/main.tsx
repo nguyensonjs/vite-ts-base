@@ -17,13 +17,18 @@ const queryClient = new QueryClient({
 })
 const LazyApp = lazy(() => import('./App'))
 
-createRoot(document.getElementById('root')!).render(
-  <Router>
-    <QueryClientProvider client={queryClient}>
-      <GlobalStyles>
-        <LazyApp />
-      </GlobalStyles>
-      <ReactQueryDevtools initialIsOpen={false} />
-    </QueryClientProvider>
-  </Router>
-)
+const rootEl = document.getElementById('root')
+
+if (rootEl) {
+  const root = createRoot(rootEl)
+  root.render(
+    <Router>
+      <QueryClientProvider client={queryClient}>
+        <GlobalStyles>
+          <LazyApp />
+        </GlobalStyles>
+        <ReactQueryDevtools initialIsOpen={false} />
+      </QueryClientProvider>
+    </Router>
+  )
+}
