@@ -1,8 +1,10 @@
-import { lazy } from 'react'
+import { lazy, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
+import { BrowserRouter as Router } from 'react-router-dom'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { BrowserRouter as Router } from 'react-router-dom'
+
+import { Spinner } from 'components/Spinner'
 
 import './i18n'
 import './assets/styles/index.css'
@@ -24,7 +26,9 @@ if (rootEl) {
   root.render(
     <Router>
       <QueryClientProvider client={queryClient}>
-        <LazyApp />
+        <Suspense fallback={<Spinner />}>
+          <LazyApp />
+        </Suspense>
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </Router>
