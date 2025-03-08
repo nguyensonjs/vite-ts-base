@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react'
+import { lazy, StrictMode, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
@@ -24,13 +24,15 @@ const rootEl = document.getElementById('root')
 if (rootEl) {
   const root = createRoot(rootEl)
   root.render(
-    <Router>
-      <QueryClientProvider client={queryClient}>
-        <Suspense fallback={<Spinner hasLogo />}>
-          <LazyApp />
-        </Suspense>
-        <ReactQueryDevtools initialIsOpen={false} />
-      </QueryClientProvider>
-    </Router>
+    <StrictMode>
+      <Router>
+        <QueryClientProvider client={queryClient}>
+          <Suspense fallback={<Spinner hasLogo />}>
+            <LazyApp />
+          </Suspense>
+          <ReactQueryDevtools initialIsOpen={false} />
+        </QueryClientProvider>
+      </Router>
+    </StrictMode>
   )
 }
