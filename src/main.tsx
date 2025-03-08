@@ -26,7 +26,7 @@ if (rootEl) {
   root.render(
     <Router>
       <QueryClientProvider client={queryClient}>
-        <Suspense fallback={<Spinner />}>
+        <Suspense fallback={<Spinner hasLogo />}>
           <LazyApp />
         </Suspense>
         <ReactQueryDevtools initialIsOpen={false} />
