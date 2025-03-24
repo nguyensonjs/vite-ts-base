@@ -1,4 +1,4 @@
-import { ProtectedRoute } from 'components/ProtectedRoute'
+import { AuthGuardRoute } from 'components/AuthGuardRoute'
 import { Spinner } from 'components/Spinner'
 import { ROUTES } from 'defines'
 import { Suspense } from 'react'
@@ -28,7 +28,7 @@ function App() {
                 <Route
                   key={index}
                   path={route.path}
-                  element={<ProtectedRoute element={Page} isAuthenticated={isAuthenticated} />}
+                  element={<AuthGuardRoute element={Page} isAuthenticated={isAuthenticated} />}
                 />
               )
             })}

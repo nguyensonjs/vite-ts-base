@@ -3,11 +3,11 @@ import { Navigate } from 'react-router-dom'
 
 import { ROUTES } from 'defines'
 
-interface ProtectedRouteProps {
+interface AuthGuardRouteProps {
   isAuthenticated: boolean
   element: React.ElementType
 }
 
-export const ProtectedRoute: FC<ProtectedRouteProps> = ({ element: Component, isAuthenticated }) => {
+export const AuthGuardRoute: FC<AuthGuardRouteProps> = ({ element: Component, isAuthenticated }) => {
   return isAuthenticated ? <Component /> : <Navigate to={ROUTES.PUBLIC.LOGIN} replace />
 }
