@@ -1,6 +1,6 @@
 import { ComponentType } from 'react'
-import { ROUTES, RouteValues } from 'defines'
 import { About, Dashboard, Home, Profile } from 'pages'
+import { ROUTES, RouteValues } from './type'
 
 interface RouteConfig {
   path: RouteValues
@@ -18,7 +18,7 @@ const publicRoutes: RouteConfig[] = [
     component: About
   }
 ]
-/*~~~~~~~~~~RivateRoutes~~~~~~~~~~*/
+/*~~~~~~~~~~PrivateRoutes~~~~~~~~~~*/
 const privateRoutes: RouteConfig[] = [
   {
     path: ROUTES.PRIVATE.DASHBOARD,
