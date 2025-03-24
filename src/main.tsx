@@ -5,6 +5,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 import { Spinner } from 'components/Spinner'
+import { AppProvider } from 'contexts/AppContext'
 
 import './i18n'
 import './assets/styles/index.css'
@@ -27,10 +28,12 @@ if (rootEl) {
     <StrictMode>
       <Router>
         <QueryClientProvider client={queryClient}>
-          <Suspense fallback={<Spinner hasLogo />}>
-            <LazyApp />
-          </Suspense>
-          <ReactQueryDevtools initialIsOpen={false} />
+          <AppProvider>
+            <Suspense fallback={<Spinner hasLogo />}>
+              <LazyApp />
+            </Suspense>
+            <ReactQueryDevtools initialIsOpen={false} />
+          </AppProvider>
         </QueryClientProvider>
       </Router>
     </StrictMode>
